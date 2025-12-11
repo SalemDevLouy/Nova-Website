@@ -1,0 +1,322 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0D0A19;
+  --color-secondary: #fff2f2;
+  --color-accent: #FF6B6B;
+  --color-dark: #0D0A19;
+  --color-light: #fff2f2;
+  --color-yellow: #FFD338;
+  --color-purple: #5928E5;
+  
+  --font-grifter: 'Grifter-bold', sans-serif;
+  --font-jakarta: 'Plus Jakarta Sans', sans-serif;
+  --font-cairo: 'Cairo', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-syne: 'Syne', sans-serif;
+}
+
+@font-face {
+    font-family: 'Grifter-bold';
+    src: url('/fonts/grifterbold-webfont.woff2') format('woff2'),
+         url('/fonts/grifterbold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  body {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    min-height: 100vh;
+    font-family: var(--font-grifter), var(--font-jakarta), var(--font-cairo), sans-serif;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* RTL Support with Cairo Font */
+  html[dir="rtl"] {
+    text-align: right;
+    direction: rtl;
+  }
+
+  html[dir="rtl"] body {
+    font-family: var(--font-cairo), var(--font-jakarta), sans-serif;
+  }
+
+  html[dir="rtl"] *:not(.slick-slider):not(.slick-list):not(.slick-track):not(.slick-slide) {
+    font-family: var(--font-cairo), sans-serif !important;
+    letter-spacing: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+  
+  section {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* RTL letter spacing and font fix */
+  html[dir="rtl"] h1,
+  html[dir="rtl"] h2,
+  html[dir="rtl"] h3,
+  html[dir="rtl"] h4,
+  html[dir="rtl"] h5,
+  html[dir="rtl"] h6,
+  html[dir="rtl"] p,
+  html[dir="rtl"] span,
+  html[dir="rtl"] a,
+  html[dir="rtl"] button,
+  html[dir="rtl"] input,
+  html[dir="rtl"] select,
+  html[dir="rtl"] textarea,
+  html[dir="rtl"] label {
+    font-family: var(--font-cairo), sans-serif !important;
+    letter-spacing: 0;
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+  }
+}
+
+@layer components {
+  /* Button Styles */
+  .btn-primary {
+    display: inline-block;
+    text-align: center;
+    background-color: var(--color-yellow);
+    color: var(--color-dark);
+    padding: 16px 62px;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border: none;
+    width: fit-content;
+  }
+  
+  .btn-primary:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+  
+  .btn-secondary {
+    display: inline-block;
+    text-align: center;
+    background-color: var(--color-dark);
+    color: white;
+    padding: 13.5px 50px;
+    border-radius: 3px;
+    font-size: 1.199rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border: none;
+  }
+  
+  .btn-secondary:hover {
+    opacity: 0.9;
+  }
+  
+  .btn-tertiary {
+    display: inline-block;
+    text-align: center;
+    background-color: transparent;
+    color: black;
+    padding: 13.5px 32px;
+    font-size: 1.199rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border: none;
+    text-decoration: underline;
+  }
+  
+  .btn-quaternary {
+    display: inline-block;
+    text-align: center;
+    background-color: transparent;
+    color: black;
+    padding: 13.5px 32px;
+    border-radius: 3px;
+    font-size: 1.199rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border: 2px solid var(--color-yellow);
+  }
+
+  /* Heading Styles */
+  .heading-main {
+    font-size: 3.5rem;
+    font-family: var(--font-grifter);
+  }
+  
+  .heading-h2 {
+    font-size: 7rem;
+    font-weight: 800;
+    line-height: 7rem;
+    letter-spacing: 0.05em;
+  }
+  
+  .heading-h3 {
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 6rem;
+    letter-spacing: 0.05em;
+  }
+  
+  .paragraph {
+    font-size: 1.069rem;
+    font-weight: 400;
+    line-height: 1.75rem;
+  }
+
+  /* Layout Helpers */
+  .flex-row-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .flex-column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .grid-two {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  
+  .grid-center {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .div-center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 1031px) {
+  .heading-main {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 895px) {
+  .heading-main {
+    font-size: 2.5rem;
+  }
+  .heading-h2 {
+    font-size: 6rem;
+    line-height: 6rem;
+  }
+  .heading-h3 {
+    font-size: 5rem;
+    line-height: 5rem;
+  }
+}
+
+@media (max-width: 785px) {
+  img {
+    width: 90%;
+  }
+  .heading-h2 {
+    font-size: 5rem;
+    line-height: 5rem;
+  }
+  .heading-h3 {
+    font-size: 3.94rem;
+    line-height: 3.94rem;
+  }
+}
+
+@media (max-width: 662px) {
+  .btn-primary {
+    font-size: 0.999rem;
+    padding: 11px 26px;
+  }
+  .btn-secondary, .btn-tertiary, .btn-quaternary {
+    font-size: 0.999rem;
+    padding: 11px 26px;
+  }
+  .heading-h2 {
+    font-size: 3.94rem;
+    line-height: 3.94rem;
+  }
+  .heading-h3 {
+    font-size: 2.88rem;
+    line-height: 2.88rem;
+  }
+}
+
+@media (max-width: 530px) {
+  .heading-main {
+    font-size: 1.9rem;
+  }
+  .heading-h2 {
+    font-size: 2.3rem;
+    line-height: 2.3rem;
+  }
+  .heading-h3 {
+    font-size: 1.75rem;
+    line-height: 1.75rem;
+    letter-spacing: normal;
+  }
+  .paragraph {
+    font-size: 1.069rem;
+    line-height: 0.99rem;
+  }
+}
+
+@media (max-width: 395px) {
+  .btn-primary, .btn-secondary, .btn-tertiary, .btn-quaternary {
+    font-size: 0.875rem;
+    padding: 8px 22px;
+  }
+}

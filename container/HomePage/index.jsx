@@ -1,3 +1,5 @@
+'use client';
+
 import styled from 'styled-components';
 
 import AboutUs from "../../components/AboutUs"
@@ -8,10 +10,10 @@ import HeroSection from "../../components/HeroSection"
 import OurWorks from "../../components/OurWorks"
 import Services from "../../components/Services"
 import Testimonial from "../../components/Testimonial"
-import Testimonials from "../../components/Testimonials"
-import TrustedClients from "../../components/TrustedClients"
-import Values from "../../components/Values"
-import Link from 'next/link';
+// import Testimonials from "../../components/Testimonials"
+// import TrustedClients from "../../components/TrustedClients"
+// import Values from "../../components/Values"
+// import Link from 'next/link';
 import { BsWhatsapp } from 'react-icons/bs';
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
@@ -49,6 +51,7 @@ const HomePage = () => {
       <OurWorks />
       <Features />
       <Testimonial />
+      {/* <Values/> */}
       <FAQ />
       <ContactUs />
       <a target='_blank' href="https://wa.me/+918590302905" aria-label="Chat with us on WhatsApp">

@@ -3,7 +3,9 @@ import { motion } from "framer-motion";
 import { MdOutlineClose } from "react-icons/md";
 import Link from "next/link";
 
-export const SidebarContainer = styled.aside`
+export const SidebarContainer = styled.aside.withConfig({
+  shouldForwardProp: (prop) => !['isOpen'].includes(prop),
+})`
   position: fixed;
   z-index: 999;
   width: 100%;

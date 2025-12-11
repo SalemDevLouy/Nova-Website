@@ -1,8 +1,9 @@
 const Links = [
-    { name: "Home", to: "#hero-section", id: 1 },
-    { name: "About Us", to: "#about-us", id: 2 },
-    { name: "Our Works", to: "#our-works", id: 3 },
-    { name: "Contact Us", to: "#contact-us", id: 4 },
+    { name: "home", to: "#hero-section", id: 1 },
+    { name: "about", to: "#about-us", id: 2 },
+    { name: "services", to: "#services", id: 3 },
+    { name: "works", to: "#our-works", id: 4 },
+    { name: "contact", to: "#contact-us", id: 5 },
   ];
   
   export default Links;

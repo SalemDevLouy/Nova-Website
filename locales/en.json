@@ -1,0 +1,186 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "works": "Works",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "We Transform Ideas Into Digital Reality",
+    "description": "Your partner for digital marketing, web development, mobile apps, design, and innovative digital solutions",
+    "cta": "Lets Talk",
+    "rating": "5 out of 5 stars",
+    "promise": "We're not just promising, we're proving.",
+    "clients": "clients profile images"
+  },
+  "about": {
+    "heading": "About Us",
+    "title": "We Transform Ideas Into Digital Success",
+    "description": "We are a full-service digital agency specializing in digital marketing, website development, mobile apps, graphic design, video montage, and digital products. Our mission is to help businesses grow and thrive in the digital world through innovative solutions and creative strategies. With a team of passionate experts, we deliver results that exceed expectations.",
+    "cta": "Learn More About Us",
+    "imageAlt": "Creative team collaborating on digital projects"
+  },
+  "services": {
+    "heading": "What We Do",
+    "title": "Services We Offer",
+    "cta": "Contact Us",
+    "webDev": {
+      "title": "Marketing Websites",
+      "description": "Professional marketing websites and mobile apps that drive results and engage your audience.",
+      "alt": "Marketing Websites Icon"
+    },
+    "appDev": {
+      "title": "Graphic Design & Montage",
+      "description": "Creative graphic design and professional montage services to bring your vision to life.",
+      "alt": "Graphic Design Icon"
+    },
+    "digitalMarketing": {
+      "title": "Digital Products & Services",
+      "description": "Comprehensive digital products and services to transform your business online.",
+      "alt": "Digital Services Icon"
+    }
+  },
+  "works": {
+    "heading": "Latest Projects",
+    "subheading": "Award winning designs, and nothing less.",
+    "viewLabel": "View Project",
+    "visitLabel": "Visit {name} website (opens in a new tab)"
+  },
+  "features": {
+    "heading": "Why Us",
+    "title": "Still unsure?",
+    "description": "Here are 3 reasons you should partner with us!",
+    "cta": "Let's Begin",
+    "imageAlt": "A female teammate shaking hands with a client",
+    "stat1": {
+      "number": "100%",
+      "label": "Happy Clients",
+      "description": "We are proud to have a 100% satisfaction rating from our clients."
+    },
+    "stat2": {
+      "number": "78%",
+      "label": "Increase in Leads",
+      "description": "Our clients have seen an average of 78% increase in leads within 6 months of working with us."
+    },
+    "stat3": {
+      "number": "3x",
+      "label": "Growth for Clients",
+      "description": "Our clients have seen an average of 3x growth in traffic, leads, and sales after working with us."
+    }
+  },
+  "testimonials": {
+    "heading": "Loved by Clients",
+    "rating": "5 out of 5 stars",
+    "prevButton": "Previous testimonial",
+    "nextButton": "Next testimonial",
+    "clients": [
+      {
+        "name": "Libin Philip",
+        "position": "CEO of NeoCart",
+        "review": "Anrafa helped us overhaul our website and the results were amazing. We saw a significant increase in traffic, leads, and sales.",
+        "imageAlt": "Libin Philip's profile picture"
+      },
+      {
+        "name": "Sabu Hakkim",
+        "position": "CEO of Bellkare & Dowl",
+        "review": "Anrafa is a great team to work with. They're knowledgeable, professional, and always go the extra mile.",
+        "imageAlt": "Sabu Hakkim's profile picture"
+      },
+      {
+        "name": "Ansari",
+        "position": "Owner of Hitoq",
+        "review": "Anrafa took our vision for a new website and brought it to life. They were always available to answer our questions and make changes, and they were always on time and within budget.",
+        "imageAlt": "Ansari's profile picture"
+      },
+      {
+        "name": "Faris CA",
+        "position": "Owner of Ezza Group",
+        "review": "Anrafa is a top-notch web development company. They're experts in their field and always deliver high-quality work",
+        "imageAlt": "Faris CA's profile picture"
+      }
+    ]
+  },
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "questions": [
+      {
+        "question": "What services do you offer?",
+        "answer": "As a freelance web developers, we offer a comprehensive range of services that cater to diverse digital needs. Our expertise includes custom website development with seo optimized, responsive design, e-commerce solutions, web applications, CMS integration, website maintenance, and more. We prioritize client collaboration to deliver tailored solutions that align with their business objectives and ensure a seamless online presence"
+      },
+      {
+        "question": "How much does it cost to get started with a high-performing website?",
+        "answer": "The cost to get started with a high-performing website can vary depending on the scope and complexity of your project. We offer personalized quotes based on your specific requirements, ensuring you get the best value for your investment. Please get in touch with us to discuss your needs, and we'll provide you with a detailed estimate tailored to your web development goals."
+      },
+      {
+        "question": "How long will the work take from start to finish?",
+        "answer": "The duration of web development work from start to finish depends on the project's complexity and requirements. It typically ranges from a few weeks for smaller projects to several months for more extensive ones. Our team of web developers is dedicated to delivering high-quality results within agreed-upon timelines. We will provide you with a clear project timeline during the initial consultation, ensuring transparency and effective project management throughout the development process."
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Get In Touch",
+    "form": {
+      "title": "Contact Us Now",
+      "nameLabel": "My name is",
+      "namePlaceholder": "Your name",
+      "serviceLabel": "and I'm looking for",
+      "servicePlaceholder": "Select a service",
+      "emailLabel": "My email is",
+      "emailPlaceholder": "Your Email Address",
+      "phoneLabel": "Contact number",
+      "phonePlaceholder": "Your Phone Number",
+      "termsLabel": "I have accepted all the terms and conditions",
+      "submit": "Send Enquiry",
+      "services": {
+        "digitalMarketing": "Digital Marketing",
+        "webDev": "Website Building",
+        "appDev": "Mobile App Development",
+        "graphicDesign": "Graphic Design",
+        "videoMontage": "Video Montage",
+        "digitalProducts": "Digital Products & Subscriptions"
+      }
+    },
+    "details": {
+      "email": "Email",
+      "phone": "Phone",
+      "social": "Social"
+    }
+  },
+  "values": {
+    "heading": "Core Values",
+    "subheading": "we always live by",
+    "newsletter": {
+      "bold": "Don't missed it.",
+      "text": "We will regularly update about our latest project's and our availability",
+      "placeholder": "Your email",
+      "button": "Subscribe"
+    },
+    "cards": {
+      "perfection": {
+        "title": "Pixel Perfection",
+        "description": "With high dedication, our designs are always perfectly to the applied container which also pixel",
+        "alt": "Target icon representing pixel perfection"
+      },
+      "deadline": {
+        "title": "Consistent Deadline",
+        "description": "We always update our design by daily basis.It is better if we know whats the problem faster",
+        "alt": "Task deadline icon"
+      },
+      "updated": {
+        "title": "Updated Style",
+        "description": "with highly competent desginers will always update about the most recent design style",
+        "alt": "Design shape icon"
+      },
+      "transparency": {
+        "title": "Transparency",
+        "description": "Keeping the relationship between us and the client as clear as possible to achieve clients goals",
+        "alt": "Customer reviews icon"
+      }
+    }
+  },
+  "footer": {
+    "rights": "All Rights Reserved",
+    "developed": "Designed And Developed By"
+  }
+}

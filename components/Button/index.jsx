@@ -1,35 +1,34 @@
-import { PrimaryButtonStyled, SecondaryButtonStyled,TeritaryButtonStyled,QuaternaryButtonStyled } from "./Button.elements"
- const MainButton = ({children}) => {
-  return (
-    <>
-    <PrimaryButtonStyled>{children}</PrimaryButtonStyled>
+'use client';
 
-    </>
+const MainButton = ({children, className = '', ...props}) => {
+  return (
+    <button className={`btn-primary ${className}`} {...props}>
+      {children}
+    </button>
   )
 }
-export const SecondButton = ({children}) => {
+
+export const SecondButton = ({children, className = '', ...props}) => {
   return (
-    <>
-
-    <SecondaryButtonStyled>{children}</SecondaryButtonStyled>
-
-    </>
+    <button className={`btn-secondary ${className}`} {...props}>
+      {children}
+    </button>
   )
 }
-export const ThirdButton = ({children}) => {
-  return (
-    <>
-    
-    <TeritaryButtonStyled>{children}</TeritaryButtonStyled>
 
-    </>
+export const ThirdButton = ({children, className = '', ...props}) => {
+  return (
+    <button className={`btn-tertiary ${className}`} {...props}>
+      {children}
+    </button>
   )
 }
-export const FourthButton = ({children}) => {
+
+export const FourthButton = ({children, className = '', ...props}) => {
   return (
-    <>
-    <QuaternaryButtonStyled>{children}</QuaternaryButtonStyled>
-    </>
+    <button className={`btn-quaternary ${className}`} {...props}>
+      {children}
+    </button>
   )
 }
 

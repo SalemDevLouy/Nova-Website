@@ -11,13 +11,25 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
 }
 
+/* Arabic Font - Cairo from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+
 html,
 body {
-    font-family: 'Grifter-bold', sans-serif;
+    font-family: 'Grifter-bold', 'Plus Jakarta Sans', 'Cairo', sans-serif;
     padding: 0;
     margin: 0;
     background-color:#fff2f2;
-    color:#0D0A19;;
+    color:#0D0A19;
+}
+
+/* RTL Support with Cairo Font */
+html[dir="rtl"] {
+    text-align: right;
+}
+
+html[dir="rtl"] body {
+    font-family: 'Cairo', 'Plus Jakarta Sans', 'Grifter-bold', sans-serif;
 }
 
 html {
@@ -49,10 +61,16 @@ a {
     user-select: none;
     letter-spacing:0.8;
     /* transition: all 0.2s ease-in-out ; */
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', 'Cairo', sans-serif;
     /* overflow-x:hidden; */
     /* background-color:rgba(27, 245, 49, 0.12);*/
      /* outline: 1px solid red;  */
+}
+
+/* RTL letter spacing and font fix */
+html[dir="rtl"] * {
+    letter-spacing: 0;
+    font-family: 'Cairo', sans-serif;
 }
 
 img{

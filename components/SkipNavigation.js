@@ -1,3 +1,5 @@
+'use client';
+
 // SkipNavigation.js
 import React from 'react';
 import styled from 'styled-components';

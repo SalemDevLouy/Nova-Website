@@ -1,43 +1,11 @@
-import {
-  Section,
-  Container,
-  Detail,
-  DetailIcons,
-  ContactLinkImage,
-  DetailDescription,
-  DetailTitle,
-  LeftSection,
-  RightSection,
-  Span,
-  Contact,
-  ContactDetails,
-  Title,
-  TitleContact,
-  MailIcon,
-  ContactForm,
-  PhoneIcon,
-  EmailInput,
-  NameInput,
-  ServiceInput,
-  GetaQuote,
-  Form,
-  ScheduleP,
-  TermsCheckbox,
-  SubmitForm,
-  CheckboxTitle,
-  Checkbox,
-  UpperSection,
-  BottomSection,
-  Dropdowns,
-  PhoneInput,
-  HeroForm,
-} from "./ContactUs.styled";
-
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { send } from "emailjs-com";
-import Link from "next/link";
+import { motion } from "framer-motion";
+import { useLanguage } from "../../contexts/LanguageContext";
+
 const ContactUs1 = (props) => {
+  const { t, locale } = useLanguage();
   const [sender_email, set_sender_email] = useState("");
   const [sender_phone, set_sender_phone] = useState("");
   const [sender_name, set_sender_name] = useState("");
@@ -88,7 +56,6 @@ const ContactUs1 = (props) => {
 
   const SheetSubmit = (e) => {
     e.preventDefault();
-    // console.log(name,email,message)
     const data = {
       Name: sender_name,
       Email: sender_email,
@@ -118,119 +85,247 @@ const ContactUs1 = (props) => {
         setCheck(false);
       });
   };
+
   const submit = (e) => {
     SheetSubmit(e);
     sendMail(e);
   };
-  var Services = [
-    "App Development",
-    "Web Development",
-    "UI/UX Desgin",
-    "Web Hosting",
-    "SEO ",
-  ];
-  const options = [
-    { key: "angular", text: "Angular", value: "angular" },
-    { key: "css", text: "CSS", value: "css" },
-    { key: "design", text: "Graphic Design", value: "design" },
-    { key: "ember", text: "Ember", value: "ember" },
-    { key: "html", text: "HTML", value: "html" },
-    { key: "ia", text: "Information Architecture", value: "ia" },
-    { key: "javascript", text: "Javascript", value: "javascript" },
-    { key: "mech", text: "Mechanical Engineering", value: "mech" },
-    { key: "meteor", text: "Meteor", value: "meteor" },
-    { key: "node", text: "NodeJS", value: "node" },
-    { key: "plumbing", text: "Plumbing", value: "plumbing" },
-    { key: "python", text: "Python", value: "python" },
-    { key: "rails", text: "Rails", value: "rails" },
-    { key: "react", text: "React", value: "react" },
-    { key: "repair", text: "Kitchen Repair", value: "repair" },
-    { key: "ruby", text: "Ruby", value: "ruby" },
-    { key: "ui", text: "UI Design", value: "ui" },
-    { key: "ux", text: "User Experience", value: "ux" },
-  ];
-  const defaultOption = "Select Service";
-  return (
-    <HeroForm id="heroContact"
-      initial={{opacity:0}}
-      animate={{opacity:1}}
-      transition={{delay:2}}
-    >
-      <Form onSubmit={submit}>
-        <GetaQuote>Get a quote</GetaQuote>
-        {/* <ScheduleP>Schedule an Appointment</ScheduleP> */}
-        <ContactForm>
-        <label htmlFor="name">  Hey👋my name is </label> &nbsp;
-          <NameInput
-            id="name"
-            type="text"
-            value={sender_name}
-            placeholder="&nbsp; Your name"
-            onChange={(e) => {
-              set_sender_name(e.target.value);
-              setName(e.target.value);
-            }}
-            required
-          />
 
-&nbsp;<label htmlFor="service"> and I&apos;m looking for </label>&nbsp;
-          <Dropdowns
-          id="service"
-            value={sender_service}
-            placeholder="&nbsp; Select a service"
-            onChange={(e) => {
-              set_sender_service(e.target.value);
-            }}
-            required
-          >
-            <option value="Web Development">Web Development</option>
-            <option value="Digital Marketing">Digital Marketing</option>
-            <option value="App Developement">App Development</option>
-          </Dropdowns>
-          <br />
-          <label htmlFor="email">Ping us at 😉</label>&nbsp;
-          <EmailInput
-           id="email"
-            type="email"
-            value={sender_email}
-            placeholder="&nbsp; Your Email Address"
-            onChange={(e) => {
-              set_sender_email(e.target.value);
-              setEmail(e.target.value);
-            }}
-            required
-          />
-               <label htmlFor="phone">Contact number📞</label>&nbsp;
-          <PhoneInput
-            id="phone"
-            type="tel"
-            value={sender_phone}
-            placeholder="Your Phone Number"
-            onChange={(e) => {
-              set_sender_phone(e.target.value);
-              setPhone(e.target.value);
-            }}
-            required
-          />
-        </ContactForm>
-        <TermsCheckbox>
-          <label  style={{ display: 'flex', alignItems: 'center' }}>
-          <Checkbox
-            type="checkbox"
-            onChange={(e) => {
-              setCheck(e.target.checked);
-            }}
-            required
-          />
-          <CheckboxTitle>
-            I have accepted all the terms and conditions
-          </CheckboxTitle>
+  return (
+    <motion.div 
+      id="heroContact"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 2 }}
+      style={{
+        width: '100%',
+        maxWidth: '600px',
+        background: 'white',
+        borderRadius: '20px',
+        padding: '2rem',
+        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)'
+      }}
+      className="hero-form"
+    >
+      <form onSubmit={submit} style={{ width: '100%' }}>
+        <h3 
+          style={{
+            fontSize: '2rem',
+            fontWeight: 'bold',
+            marginBottom: '1.5rem',
+            color: '#232323',
+            fontFamily: locale === 'ar' ? '"Cairo", sans-serif' : '"Plus Jakarta Sans", sans-serif'
+          }}
+          className="form-title"
+        >
+          {t('contact.form.title')}
+        </h3>
+
+        <div 
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1rem',
+            fontSize: '1rem',
+            lineHeight: '1.8',
+            fontFamily: locale === 'ar' ? '"Cairo", sans-serif' : '"Plus Jakarta Sans", sans-serif'
+          }}
+          className="contact-form"
+        >
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.5rem' }}>
+            <label htmlFor="name">{t('contact.form.nameLabel')}</label>
+            <input
+              id="name"
+              type="text"
+              value={sender_name}
+              placeholder={t('contact.form.namePlaceholder')}
+              onChange={(e) => {
+                set_sender_name(e.target.value);
+                setName(e.target.value);
+              }}
+              required
+              style={{
+                flex: '1',
+                minWidth: '150px',
+                padding: '0.5rem 1rem',
+                border: 'none',
+                borderBottom: '2px solid #e0e0e0',
+                outline: 'none',
+                fontSize: '1rem',
+                fontFamily: locale === 'ar' ? '"Cairo", sans-serif' : '"Plus Jakarta Sans", sans-serif'
+              }}
+              className="input-field"
+            />
+          </div>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.5rem' }}>
+            <label htmlFor="service">{t('contact.form.serviceLabel')}</label>
+            <select
+              id="service"
+              value={sender_service}
+              onChange={(e) => {
+                set_sender_service(e.target.value);
+              }}
+              required
+              style={{
+                flex: '1',
+                minWidth: '150px',
+                padding: '0.5rem 1rem',
+                border: 'none',
+                borderBottom: '2px solid #e0e0e0',
+                outline: 'none',
+                fontSize: '1rem',
+                background: 'white',
+                cursor: 'pointer',
+                fontFamily: locale === 'ar' ? '"Cairo", sans-serif' : '"Plus Jakarta Sans", sans-serif'
+              }}
+              className="input-field"
+            >
+              <option value="">{t('contact.form.servicePlaceholder')}</option>
+              <option value="Digital Marketing">{t('contact.form.services.digitalMarketing')}</option>
+              <option value="Website Building">{t('contact.form.services.webDev')}</option>
+              <option value="Mobile App Development">{t('contact.form.services.appDev')}</option>
+              <option value="Graphic Design">{t('contact.form.services.graphicDesign')}</option>
+              <option value="Video Montage">{t('contact.form.services.videoMontage')}</option>
+              <option value="Digital Products">{t('contact.form.services.digitalProducts')}</option>
+            </select>
+          </div>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.5rem' }}>
+            <label htmlFor="email">{t('contact.form.emailLabel')}</label>
+            <input
+              id="email"
+              type="email"
+              value={sender_email}
+              placeholder={t('contact.form.emailPlaceholder')}
+              onChange={(e) => {
+                set_sender_email(e.target.value);
+                setEmail(e.target.value);
+              }}
+              required
+              style={{
+                flex: '1',
+                minWidth: '150px',
+                padding: '0.5rem 1rem',
+                border: 'none',
+                borderBottom: '2px solid #e0e0e0',
+                outline: 'none',
+                fontSize: '1rem',
+                fontFamily: locale === 'ar' ? '"Cairo", sans-serif' : '"Plus Jakarta Sans", sans-serif'
+              }}
+              className="input-field"
+            />
+          </div>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.5rem' }}>
+            <label htmlFor="phone">{t('contact.form.phoneLabel')}</label>
+            <input
+              id="phone"
+              type="tel"
+              value={sender_phone}
+              placeholder={t('contact.form.phonePlaceholder')}
+              onChange={(e) => {
+                set_sender_phone(e.target.value);
+                setPhone(e.target.value);
+              }}
+              required
+              style={{
+                flex: '1',
+                minWidth: '150px',
+                padding: '0.5rem 1rem',
+                border: 'none',
+                borderBottom: '2px solid #e0e0e0',
+                outline: 'none',
+                fontSize: '1rem',
+                fontFamily: locale === 'ar' ? '"Cairo", sans-serif' : '"Plus Jakarta Sans", sans-serif'
+              }}
+              className="input-field"
+            />
+          </div>
+        </div>
+
+        <div 
+          style={{
+            marginTop: '1.5rem',
+            marginBottom: '1.5rem'
+          }}
+        >
+          <label style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+            <input
+              type="checkbox"
+              onChange={(e) => {
+                setCheck(e.target.checked);
+              }}
+              required
+              style={{
+                width: '18px',
+                height: '18px',
+                marginRight: locale === 'ar' ? '0' : '0.5rem',
+                marginLeft: locale === 'ar' ? '0.5rem' : '0',
+                cursor: 'pointer'
+              }}
+            />
+            <span 
+              style={{
+                fontSize: '0.9rem',
+                color: '#666',
+                fontFamily: locale === 'ar' ? '"Cairo", sans-serif' : '"Plus Jakarta Sans", sans-serif'
+              }}
+            >
+              {t('contact.form.termsLabel')}
+            </span>
           </label>
-        </TermsCheckbox>
-        <SubmitForm type="Submit">Send Enquiry</SubmitForm>
-      </Form>
-    </HeroForm>
+        </div>
+
+        <button 
+          type="submit" 
+          className="btn-primary"
+          style={{
+            width: '100%',
+            fontFamily: locale === 'ar' ? '"Cairo", sans-serif' : '"Plus Jakarta Sans", sans-serif'
+          }}
+        >
+          {t('contact.form.submit')}
+        </button>
+      </form>
+
+      <style jsx>{`
+        .input-field:focus {
+          border-bottom-color: #5928e5;
+        }
+
+        @media (max-width: 768px) {
+          .hero-form {
+            padding: 1.5rem !important;
+          }
+          .form-title {
+            font-size: 1.5rem !important;
+          }
+          .contact-form {
+            font-size: 0.9rem !important;
+          }
+          .input-field {
+            font-size: 0.9rem !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .hero-form {
+            padding: 1rem !important;
+          }
+          .form-title {
+            font-size: 1.25rem !important;
+          }
+        }
+
+        html[dir="rtl"] .contact-form label,
+        html[dir="rtl"] .contact-form {
+          text-align: right;
+        }
+      `}</style>
+    </motion.div>
   );
 };
 
 export default ContactUs1;
+

@@ -3,7 +3,9 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
 
-export const Nav = styled.nav`
+export const Nav = styled.nav.withConfig({
+  shouldForwardProp: (prop) => !['scrollNav'].includes(prop),
+})`
 background:${({scrollNav}) =>(scrollNav ? '#fff' :'#fff')};
 width: 95%;
 max-width: 1600px;

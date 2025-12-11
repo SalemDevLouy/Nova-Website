@@ -8,13 +8,13 @@ const slides = [
     {
         Image:"/images/MOCKUPS/innovgrab.jpg",
         Name:"Abhijith K",
-        Descriptions: "Honestly, 1000x more than our expectations.Intelpik had a clear concept how to connect design concept & brand",
+        Descriptions: "Honestly, 1000x more than our expectations.Anrafa had a clear concept how to connect design concept & brand",
         class:"AboveContainer",
     },
     {
         Image:"/images/MOCKUPS/neotech.jpg",
         Name:"Thwayyib Hashim",
-        Descriptions: "I highly recommend Intelpik team for all and any of your design needs.I am very happy with the new redesigned and restructured website they built for my moving company!",
+        Descriptions: "I highly recommend Anrafa team for all and any of your design needs.I am very happy with the new redesigned and restructured website they built for my moving company!",
         class:"AboveContainer",
     },
     {

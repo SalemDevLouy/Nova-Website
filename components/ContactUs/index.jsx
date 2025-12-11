@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Section,
   Container,
@@ -38,7 +40,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { send } from "emailjs-com";
 import Link from "next/link";
+import { useLanguage } from "../../contexts/LanguageContext";
+
 const ContactUs = () => {
+  const { t, locale } = useLanguage();
 
   const [sender_email, set_sender_email] = useState("");
   const [sender_phone, set_sender_phone] = useState("");
@@ -154,9 +159,14 @@ const ContactUs = () => {
   const defaultOption = "Select Service";
   return (
     <Section id="contact-us">
-      <Container>
+      <Container style={{ direction: locale === 'ar' ? 'rtl' : 'ltr' }}>
         <UpperSection>
-          <TitleContact>Lets Discuss Your Project</TitleContact>
+          <TitleContact style={{
+            fontFamily: locale === 'ar' ? '"Cairo", sans-serif' : 'inherit',
+            textAlign: locale === 'ar' ? 'right' : 'left'
+          }}>
+            {t('contact.heading')}
+          </TitleContact>
         </UpperSection>
         <BottomSection>
           <LeftSection>
@@ -166,12 +176,13 @@ const ContactUs = () => {
                   <MailIcon aria-label="Send us an email"/>
                 </DetailIcons>
                 <Detail>
-                  <DetailTitle>Email</DetailTitle>
-                  <Link href="mailto:hello@intelpik.com" passHref>
-                    <a aria-label="Send an email to intelpik@gmail.com">
-                      {" "}
-                      <DetailDescription>hello@intelpik.com</DetailDescription>
-                    </a>
+                  <DetailTitle style={{
+                    fontFamily: locale === 'ar' ? '"Cairo", sans-serif' : 'inherit'
+                  }}>
+                    {t('contact.details.email')}
+                  </DetailTitle>
+                  <Link href="mailto:hello@Anrafa.com" aria-label="Send an email to hello@Anrafa.com">
+                    <DetailDescription>hello@Anrafa.com</DetailDescription>
                   </Link>
                 </Detail>
               </Contact>
@@ -180,11 +191,13 @@ const ContactUs = () => {
                   <PhoneIcon aria-label="Call us"/>
                 </DetailIcons>
                 <Detail>
-                  <DetailTitle>Phone</DetailTitle>
-                  <Link href="tel:+918590302905" passHref>
-                    <a aria-label="Call +91 8590302905">
-                      <DetailDescription>+91 8590302905</DetailDescription>
-                    </a>
+                  <DetailTitle style={{
+                    fontFamily: locale === 'ar' ? '"Cairo", sans-serif' : 'inherit'
+                  }}>
+                    {t('contact.details.phone')}
+                  </DetailTitle>
+                  <Link href="tel:+918590302905" aria-label="Call +91 8590302905">
+                    <DetailDescription>+91 8590302905</DetailDescription>
                   </Link>
                 </Detail>
               </Contact>
@@ -193,17 +206,17 @@ const ContactUs = () => {
                   <SocialIcon aria-label="Follow us on social media"/>
                 </DetailIcons>
                 <Detail>
-                  <DetailTitle>Social</DetailTitle>
+                  <DetailTitle style={{
+                    fontFamily: locale === 'ar' ? '"Cairo", sans-serif' : 'inherit'
+                  }}>
+                    {t('contact.details.social')}
+                  </DetailTitle>
                   <SocialDiv>
-                  <Link href="https://www.linkedin.com/company/intelpik/" passHref>
-                  <a aria-label="Visit Intelpik LinkedIn page" target="_blank" rel="noopener noreferrer">
-                      <DetailDescription>LinkedIn</DetailDescription>
-                    </a>
+                  <Link href="https://www.linkedin.com/company/Anrafa/" aria-label="Visit Anrafa LinkedIn page" target="_blank" rel="noopener noreferrer">
+                    <DetailDescription>LinkedIn</DetailDescription>
                   </Link>
-                  <Link href="https://www.instagram.com/intelpik.official/" passHref>
-                  <a aria-label="Visit Intelpik Instagram page" target="_blank" rel="noopener noreferrer">
-                      <DetailDescription>Instagram</DetailDescription>
-                    </a>
+                  <Link href="https://www.instagram.com/Anrafa.official/" aria-label="Visit Anrafa Instagram page" target="_blank" rel="noopener noreferrer">
+                    <DetailDescription>Instagram</DetailDescription>
                   </Link>
                   </SocialDiv>
                 </Detail>
@@ -213,78 +226,115 @@ const ContactUs = () => {
           </LeftSection>
           <RightSection>
             <Form onSubmit={submit} id="contact-form">
-              <GetaQuote>Get a quote</GetaQuote>
+              <GetaQuote style={{
+                fontFamily: locale === 'ar' ? '"Cairo", sans-serif' : 'inherit',
+                textAlign: locale === 'ar' ? 'right' : 'left'
+              }}>
+                {t('contact.form.title')}
+              </GetaQuote>
               {/* <ScheduleP>Schedule an Appointment</ScheduleP> */}
-              <ContactForm>
-              <label htmlFor="contact-name"> Hey👋my name is</label> &nbsp;
+              <ContactForm style={{
+                fontFamily: locale === 'ar' ? '"Cairo", sans-serif' : 'inherit',
+                textAlign: locale === 'ar' ? 'right' : 'left'
+              }}>
+              <label htmlFor="contact-name">{t('contact.form.nameLabel')}</label> &nbsp;
                 <NameInput
                  id="contact-name"
                   type="text"
                   value={sender_name}
-                  placeholder="&nbsp; Your name"
+                  placeholder={t('contact.form.namePlaceholder')}
                   onChange={(e) => {
                     set_sender_name(e.target.value);
                     setName(e.target.value);
                   }}
+                  style={{
+                    fontFamily: locale === 'ar' ? '"Cairo", sans-serif' : 'inherit',
+                    textAlign: locale === 'ar' ? 'right' : 'left'
+                  }}
                   required
                 />
 
-                &nbsp;<label htmlFor="contact-service"> and I&apos;m looking for </label>&nbsp;
+                &nbsp;<label htmlFor="contact-service">{t('contact.form.serviceLabel')}</label>&nbsp;
                 <Dropdowns
                   id="contact-service"
                   value={sender_service}
-                  placeholder="&nbsp; Select a service"
+                  placeholder={t('contact.form.servicePlaceholder')}
                   onChange={(e) => {
                     set_sender_service(e.target.value);
                   }}
+                  style={{
+                    fontFamily: locale === 'ar' ? '"Cairo", sans-serif' : 'inherit',
+                    textAlign: locale === 'ar' ? 'right' : 'left'
+                  }}
                   required
                 >
-                  <option value="Web Development">Web Development</option>
-                  <option value="Digital Marketing">Digital Marketing</option>
-                  <option value="App Developement">App Development</option>
+                  <option value="Marketing Websites & Apps">{t('contact.form.services.webDev')}</option>
+                  <option value="Digital Products & Services">{t('contact.form.services.digitalMarketing')}</option>
+                  <option value="Graphic Design & Montage">{t('contact.form.services.appDev')}</option>
                 </Dropdowns>
                 <br />
-                <label htmlFor="contact-email">Ping us at 😉</label>&nbsp;
+                <label htmlFor="contact-email">{t('contact.form.emailLabel')}</label>&nbsp;
                 <EmailInput
                   id="contact-email"
                   type="email"
                   value={sender_email}
-                  placeholder="&nbsp; Your Email Address"
+                  placeholder={t('contact.form.emailPlaceholder')}
                   onChange={(e) => {
                     set_sender_email(e.target.value);
                     setEmail(e.target.value);
                   }}
+                  style={{
+                    fontFamily: locale === 'ar' ? '"Cairo", sans-serif' : 'inherit',
+                    textAlign: locale === 'ar' ? 'right' : 'left'
+                  }}
                   required
                 />
-                <label htmlFor="contact-phone">Contact number📞</label>&nbsp;
+                <label htmlFor="contact-phone">{t('contact.form.phoneLabel')}</label>&nbsp;
                 <PhoneInput
                   id="contact-phone"
                   type="tel"
                   value={sender_phone}
-                  placeholder="Your Phone Number"
+                  placeholder={t('contact.form.phonePlaceholder')}
                   onChange={(e) => {
                     set_sender_phone(e.target.value);
                     setPhone(e.target.value);
+                  }}
+                  style={{
+                    fontFamily: locale === 'ar' ? '"Cairo", sans-serif' : 'inherit',
+                    textAlign: locale === 'ar' ? 'right' : 'left'
                   }}
                   required
                 />
               </ContactForm>
               <TermsCheckbox>
-                <label  style={{ display: 'flex', alignItems: 'center' }}>
+                <label style={{ 
+                  display: 'flex', 
+                  alignItems: 'center',
+                  flexDirection: locale === 'ar' ? 'row-reverse' : 'row'
+                }}>
                 <Checkbox
                   type="checkbox"
                   required
                   onChange={(e) => {
                     setCheck(e.target.checked);
                   }}
-                 
+                  style={{
+                    marginLeft: locale === 'ar' ? '0.5rem' : '0',
+                    marginRight: locale === 'ar' ? '0' : '0.5rem'
+                  }}
                 />
-                <CheckboxTitle>
-                  I have accepted all the terms and conditions
+                <CheckboxTitle style={{
+                  fontFamily: locale === 'ar' ? '"Cairo", sans-serif' : 'inherit'
+                }}>
+                  {t('contact.form.termsLabel')}
                 </CheckboxTitle>
                 </label>
               </TermsCheckbox>
-              <SubmitForm type="Submit">Send Enquiry</SubmitForm>
+              <SubmitForm type="Submit" style={{
+                fontFamily: locale === 'ar' ? '"Cairo", sans-serif' : 'inherit'
+              }}>
+                {t('contact.form.submit')}
+              </SubmitForm>
             </Form>
           </RightSection>
         </BottomSection>
