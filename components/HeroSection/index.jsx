@@ -307,7 +307,7 @@ const HeroSection = () => {
             </p>
 
             <img 
-              src="/images/clients-Anrafa.png" 
+              src="/images/clients-Anraf.png" 
               alt={t('hero.clients')}
               style={{
                 marginTop: '15px',

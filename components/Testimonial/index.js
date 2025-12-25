@@ -220,45 +220,29 @@ function Testimonial() {
                   {/* Reviewer Details */}
                   <div
                     style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '1rem',
-                      flexDirection: locale === 'ar' ? 'row-reverse' : 'row'
+                      textAlign: locale === 'ar' ? 'right' : 'left'
                     }}
                   >
-                    <img
-                      src={`/images/${testimonial.name.toLowerCase().split(' ')[0]}.jpeg`}
-                      alt={testimonial.imageAlt}
+                    <h4
                       style={{
-                        width: '3.5rem',
-                        height: '3.5rem',
-                        borderRadius: '50%',
-                        objectFit: 'cover',
-                        border: '2px solid #FFD338'
+                        fontSize: '1.1rem',
+                        fontWeight: '600',
+                        color: '#ffffff',
+                        marginBottom: '0.25rem',
+                        fontFamily: locale === 'ar' ? '"Cairo", sans-serif' : '"Plus Jakarta Sans", sans-serif'
                       }}
-                    />
-                    <div style={{ textAlign: locale === 'ar' ? 'right' : 'left' }}>
-                      <h4
-                        style={{
-                          fontSize: '1.1rem',
-                          fontWeight: '600',
-                          color: '#ffffff',
-                          marginBottom: '0.25rem',
-                          fontFamily: locale === 'ar' ? '"Cairo", sans-serif' : '"Plus Jakarta Sans", sans-serif'
-                        }}
-                      >
-                        {testimonial.name}
-                      </h4>
-                      <p
-                        style={{
-                          fontSize: '0.9rem',
-                          color: '#f0f0f0',
-                          fontFamily: locale === 'ar' ? '"Cairo", sans-serif' : '"Plus Jakarta Sans", sans-serif'
-                        }}
-                      >
-                        {testimonial.position}
-                      </p>
-                    </div>
+                    >
+                      {testimonial.name}
+                    </h4>
+                    <p
+                      style={{
+                        fontSize: '0.9rem',
+                        color: '#f0f0f0',
+                        fontFamily: locale === 'ar' ? '"Cairo", sans-serif' : '"Plus Jakarta Sans", sans-serif'
+                      }}
+                    >
+                      {testimonial.position}
+                    </p>
                   </div>
                 </article>
               </div>

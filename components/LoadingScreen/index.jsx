@@ -31,7 +31,7 @@ const LoadingScreen = () => {
           lineHeight: '130%',
           marginBottom: '1rem'
         }}>
-          Anrafa Agency
+          Anraf Agency
         </h1>
         <h3 style={{
           color: '#fff2f2',

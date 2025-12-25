@@ -181,8 +181,8 @@ const ContactUs = () => {
                   }}>
                     {t('contact.details.email')}
                   </DetailTitle>
-                  <Link href="mailto:hello@Anrafa.com" aria-label="Send an email to hello@Anrafa.com">
-                    <DetailDescription>hello@Anrafa.com</DetailDescription>
+                  <Link href="mailto:hello@Anraf.com" aria-label="Send an email to hello@Anraf.com">
+                    <DetailDescription>hello@Anraf.com</DetailDescription>
                   </Link>
                 </Detail>
               </Contact>
@@ -212,10 +212,10 @@ const ContactUs = () => {
                     {t('contact.details.social')}
                   </DetailTitle>
                   <SocialDiv>
-                  <Link href="https://www.linkedin.com/company/Anrafa/" aria-label="Visit Anrafa LinkedIn page" target="_blank" rel="noopener noreferrer">
+                  <Link href="https://www.linkedin.com/company/Anraf/" aria-label="Visit Anraf LinkedIn page" target="_blank" rel="noopener noreferrer">
                     <DetailDescription>LinkedIn</DetailDescription>
                   </Link>
-                  <Link href="https://www.instagram.com/Anrafa.official/" aria-label="Visit Anrafa Instagram page" target="_blank" rel="noopener noreferrer">
+                  <Link href="https://www.instagram.com/Anraf.official/" aria-label="Visit Anraf Instagram page" target="_blank" rel="noopener noreferrer">
                     <DetailDescription>Instagram</DetailDescription>
                   </Link>
                   </SocialDiv>

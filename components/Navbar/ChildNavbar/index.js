@@ -34,7 +34,7 @@ const ChildNavbar = ({ toggle, scrolled }) => {
         padding: '0 24px',
         maxWidth: '1600px'
       }}>
-        <Link href="/" aria-label="Anrafa Agency Home">
+        <Link href="/" aria-label="Anraf Agency Home">
           {LogoValue === "text" ? (
             <p style={{
               fontSize: '24px',
@@ -43,7 +43,7 @@ const ChildNavbar = ({ toggle, scrolled }) => {
               transition: 'color 0.3s ease',
               margin: 0
             }}>
-              Anrafa Agency.
+              Anraf Agency.
             </p>
           ) : (
             <img 

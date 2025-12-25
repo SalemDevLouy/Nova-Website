@@ -107,8 +107,8 @@ const NextArrow = ({ onClick, ...rest }) => {
 Updated metadata in `app/page.js`:
 ```javascript
 export const metadata = {
-  metadataBase: new URL('https://Anrafa.com'),
-  title: "Anrafa Agency",
+  metadataBase: new URL('https://Anraf.com'),
+  title: "Anraf Agency",
   description: "...",
   // ... other meta tags
 };

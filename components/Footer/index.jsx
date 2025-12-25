@@ -38,9 +38,9 @@ const Footer = () => {
           marginBottom: '50px',
           cursor: 'pointer'
         }}>
-          {t('footer.developed')} <strong><Link href="https://Anrafa.com/">Anrafa Agency</Link></strong>
+          {t('footer.developed')} <strong><Link href="https://Anraf.com/">Anraf Agency</Link></strong>
         </h1>
-        <Link href="mailto:hello@Anrafa.com">
+        <Link href="mailto:hello@Anraf.com">
           <h1 style={{
             fontSize: '20px',
             fontWeight: 500,
@@ -48,7 +48,7 @@ const Footer = () => {
             cursor: 'pointer',
             textAlign: 'center'
           }}>
-            hello@Anrafa.com
+            hello@Anraf.com
           </h1>
         </Link>
       </div>

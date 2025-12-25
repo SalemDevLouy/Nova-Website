@@ -85,7 +85,7 @@ export default function ReviewPage() {
       style={{
         minHeight: '100vh',
         background: 'linear-gradient(135deg, #5928e5 0%, #7b4bf5 100%)',
-        padding: '60px 20px',
+        padding: '160px 20px',
         direction: locale === 'ar' ? 'rtl' : 'ltr',
         fontFamily: locale === 'ar' ? '"Cairo", sans-serif' : '"Plus Jakarta Sans", sans-serif'
       }}
