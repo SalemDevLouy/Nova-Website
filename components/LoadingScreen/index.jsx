@@ -26,7 +26,7 @@ const LoadingScreen = () => {
     }}>
         <h1 style={{
           color: '#fff2f2',
-          fontSize: '9rem',
+          fontSize: '3rem',
           letterSpacing: '1.1px',
           lineHeight: '130%',
           marginBottom: '1rem'

@@ -38,7 +38,7 @@ const Footer = () => {
           marginBottom: '50px',
           cursor: 'pointer'
         }}>
-          {t('footer.developed')} <strong><Link href="https://Anraf.com/">Anraf Agency</Link></strong>
+          {t('footer.developed')} <strong><Link href="https://salemlouafi.me/" target="_blank" rel="noopener noreferrer">SDEV_Louy</Link></strong>
         </h1>
         <Link href="mailto:hello@Anraf.com">
           <h1 style={{
@@ -48,7 +48,7 @@ const Footer = () => {
             cursor: 'pointer',
             textAlign: 'center'
           }}>
-            hello@Anraf.com
+            
           </h1>
         </Link>
       </div>

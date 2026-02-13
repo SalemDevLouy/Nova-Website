@@ -181,8 +181,8 @@ const ContactUs = () => {
                   }}>
                     {t('contact.details.email')}
                   </DetailTitle>
-                  <Link href="mailto:hello@Anraf.com" aria-label="Send an email to hello@Anraf.com">
-                    <DetailDescription>hello@Anraf.com</DetailDescription>
+                  <Link href="mailto:anrafagency@gmail.com" aria-label="Send an email to anrafagency@gmail.com">
+                    <DetailDescription>anrafagency@gmail.com</DetailDescription>
                   </Link>
                 </Detail>
               </Contact>
@@ -196,8 +196,8 @@ const ContactUs = () => {
                   }}>
                     {t('contact.details.phone')}
                   </DetailTitle>
-                  <Link href="tel:+918590302905" aria-label="Call +91 8590302905">
-                    <DetailDescription>+91 8590302905</DetailDescription>
+                  <Link href="tel:+213552751832 " aria-label="Call +213 552751832">
+                    <DetailDescription>+213 552751832</DetailDescription>
                   </Link>
                 </Detail>
               </Contact>
@@ -212,10 +212,10 @@ const ContactUs = () => {
                     {t('contact.details.social')}
                   </DetailTitle>
                   <SocialDiv>
-                  <Link href="https://www.linkedin.com/company/Anraf/" aria-label="Visit Anraf LinkedIn page" target="_blank" rel="noopener noreferrer">
-                    <DetailDescription>LinkedIn</DetailDescription>
+                  <Link href="https://www.facebook.com/anraf57" aria-label="Visit Anraf Facebook page" target="_blank" rel="noopener noreferrer">
+                    <DetailDescription>Facebook</DetailDescription>
                   </Link>
-                  <Link href="https://www.instagram.com/Anraf.official/" aria-label="Visit Anraf Instagram page" target="_blank" rel="noopener noreferrer">
+                  <Link href="https://www.instagram.com/anrafagency/" aria-label="Visit Anraf Instagram page" target="_blank" rel="noopener noreferrer">
                     <DetailDescription>Instagram</DetailDescription>
                   </Link>
                   </SocialDiv>
