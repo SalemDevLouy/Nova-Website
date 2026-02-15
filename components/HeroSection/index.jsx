@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Slider from "react-slick";
-import { useEffect } from "react";
 import Link from "next/link";
 import ContactUs1 from "../ContactUs/index1";
 import { useLanguage } from "../../contexts/LanguageContext";
@@ -340,86 +339,42 @@ const HeroSection = () => {
           margin: '0 auto'
         }}>
           <Slider {...settings}>
-            <div style={{
+            {/* <div style={{
               display: 'grid',
               placeItems: 'center',
               border: '0px',
               cursor: 'grab',
-              height: '70px',
+              height: '20px',
+              weidth: '10px',
               padding: '10px 10px'
             }} aria-hidden="true">
-              <img src="/images/CLIENTS/Client1.svg" alt="Innovgrab logo" tabIndex={-1} />
+              <img src="/logo/logo.png" alt="Innovgrab logo" tabIndex={-1} />
+            </div> */}
+
+            <div style={{marginLeft:'15px'}}>
+              <h1 style={{color:'white' , fontSize:'30px' , fontWeight:'bold'}}>Anraf <span style={{color:"#efef00"}}> Agency</span></h1>
             </div>
-            <div style={{
-              display: 'grid',
-              placeItems: 'center',
-              border: '0px',
-              cursor: 'grab',
-              height: '70px',
-              padding: '10px 10px'
-            }} aria-hidden="true">
-              <img src="/images/CLIENTS/client2.svg" alt="Dowl logo" tabIndex={-1} />
+
+              <div style={{marginLeft:'15px'}}>
+              <h1 style={{color:'white' , fontSize:'30px' , fontWeight:'bold'}}>Anraf <span style={{color:"#efef00"}}> Agency</span></h1>
             </div>
-            <div style={{
-              display: 'grid',
-              placeItems: 'center',
-              border: '0px',
-              cursor: 'grab',
-              height: '70px',
-              padding: '10px 10px'
-            }} aria-hidden="true">
-              <img src="/images/CLIENTS/client03.svg" alt="Hitoq logo" tabIndex={-1} />
+              <div style={{marginLeft:'15px'}}>
+              <h1 style={{color:'white' , fontSize:'30px' , fontWeight:'bold'}}>Anraf <span style={{color:"#efef00"}}> Agency</span></h1>
             </div>
-            <div style={{
-              display: 'grid',
-              placeItems: 'center',
-              border: '0px',
-              cursor: 'grab',
-              height: '70px',
-              padding: '10px 10px'
-            }} aria-hidden="true">
-              <img src="/images/CLIENTS/client04.svg" alt="Bellkare logo" tabIndex={-1} />
+              <div style={{marginLeft:'15px'}}>
+              <h1 style={{color:'white' , fontSize:'30px' , fontWeight:'bold'}}>Anraf <span style={{color:"#efef00"}}> Agency</span></h1>
             </div>
-            <div style={{
-              display: 'grid',
-              placeItems: 'center',
-              border: '0px',
-              cursor: 'grab',
-              height: '70px',
-              padding: '10px 10px'
-            }} aria-hidden="true">
-              <img src="/images/CLIENTS/client05.svg" alt="Aadiveda logo" tabIndex={-1} />
+
+
+              <div style={{marginLeft:'15px'}}>
+              <h1 style={{color:'white' , fontSize:'30px' , fontWeight:'bold'}}>Anraf <span style={{color:"#efef00"}}> Agency</span></h1>
             </div>
-            <div style={{
-              display: 'grid',
-              placeItems: 'center',
-              border: '0px',
-              cursor: 'grab',
-              height: '70px',
-              padding: '10px 10px'
-            }} aria-hidden="true">
-              <img src="/images/CLIENTS/Client06.svg" alt="Neocart logo" tabIndex={-1} />
+              <div style={{marginLeft:'15px'}}>
+              <h1 style={{color:'white' , fontSize:'30px' , fontWeight:'bold'}}>Anraf <span style={{color:"#efef00"}}> Agency</span></h1>
             </div>
-            <div style={{
-              display: 'grid',
-              placeItems: 'center',
-              border: '0px',
-              cursor: 'grab',
-              height: '70px',
-              padding: '10px 10px'
-            }} aria-hidden="true">
-              <img src="/images/CLIENTS/client07.svg" alt="Neha group logo" tabIndex={-1} />
-            </div>
-            <div style={{
-              display: 'grid',
-              placeItems: 'center',
-              border: '0px',
-              cursor: 'grab',
-              height: '70px',
-              padding: '10px 10px'
-            }} aria-hidden="true">
-              <img src="/images/CLIENTS/client08.svg" alt="Neotech logo" tabIndex={-1} />
-            </div>
+            
+            
+
           </Slider>
         </div>
       </section>
