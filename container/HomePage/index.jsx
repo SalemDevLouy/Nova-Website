@@ -1,6 +1,6 @@
 'use client';
 
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 import AboutUs from "../../components/AboutUs"
 import ContactUs from "../../components/ContactUs"
@@ -14,34 +14,34 @@ import Testimonial from "../../components/Testimonial"
 // import TrustedClients from "../../components/TrustedClients"
 // import Values from "../../components/Values"
 // import Link from 'next/link';
-import { BsWhatsapp } from 'react-icons/bs';
+// import { BsWhatsapp } from 'react-icons/bs';
 import { useRef } from 'react';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 
 
 const HomePage = () => {
   const scrollRef = useRef(null) 
 
-  const FloatingButton = styled(motion.div)`
-    position: fixed;
-    bottom: 40px;
-    left: 40px;
-    background-color: #25d366;
-    color: #fff;
-    padding: 11px 16px;
-    border-radius: 50%;
-    display: grid;
-    place-items:center;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    &:hover {
-      box-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
-    }
-  `;
+  // const FloatingButton = styled(motion.div)`
+  //   position: fixed;
+  //   bottom: 40px;
+  //   left: 40px;
+  //   background-color: #25d366;
+  //   color: #fff;
+  //   padding: 11px 16px;
+  //   border-radius: 50%;
+  //   display: grid;
+  //   place-items:center;
+  //   cursor: pointer;
+  //   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  //   &:hover {
+  //     box-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
+  //   }
+  // `;
 
-  const FloatingButtonIcon = styled.span`
-    font-size: 30px;
-  `;
+  // const FloatingButtonIcon = styled.span`
+  //   font-size: 30px;
+  // `;
 
   return (
     <>
@@ -54,14 +54,14 @@ const HomePage = () => {
       {/* <Values/> */}
       <FAQ />
       <ContactUs />
-      <a target='_blank' href="https://wa.me/+918590302905" aria-label="Chat with us on WhatsApp">
+      {/* <a target='_blank' href="https://wa.me/+918590302905" aria-label="Chat with us on WhatsApp">
         <FloatingButton 
           initial={{ opacity: 0 , y:25}}
           whileInView={{ opacity: 1, y:0 }}
         > 
           <FloatingButtonIcon><BsWhatsapp></BsWhatsapp></FloatingButtonIcon>
         </FloatingButton>
-      </a>
+      </a> */}
 
     </>
   )

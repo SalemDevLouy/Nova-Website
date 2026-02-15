@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { send } from "emailjs-com";
+import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import { useLanguage } from "../../contexts/LanguageContext";
 
@@ -27,35 +27,104 @@ const ContactUs1 = (props) => {
   const [service, setService] = useState("");
   const [phone, setPhone] = useState("")
 
-  const sendMail = (e) => {
-    e.preventDefault();
-    send(
-      "service_p2zntyf",
-      "template_f4vbnzh",
-      { sender_name, sender_email, sender_service, senderDate, senderTime },
-      "HiwseFxtuDnSuFCo_"
-    )
-      .then((response) => {
-        console.log("message sent succesfully", response.status, response.text);
-      })
-      .catch((err) => {
-        console.log("Failed", err);
-      });
-    set_sender_name("");
-    set_sender_email("");
-    set_sender_service("");
-    set_sender_phone("");
-    setSenderDate("");
-    setSenderTime("");
-    setService("");
-    setEmail("");
-    setName("");
-    setPhone("");
-    setCheck(false);
+  const sendMail = async () => {
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+    console.log("🔵 STEP 1: Starting sendMail function");
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+    
+    const templateParams = {
+      sender_name: sender_name,
+      sender_email: sender_email,
+      sender_phone: sender_phone,
+      sender_service: sender_service,
+      sender_date: senderDate,
+      sender_time: senderTime,
+      // Alternative naming in case template uses different variable names
+      name: sender_name,
+      email: sender_email,
+      phone: sender_phone,
+      service: sender_service,
+      date: senderDate,
+      time: senderTime
+    };
+    
+    console.log("🔵 STEP 2: Template params prepared (ALL FIELDS):");
+    console.log("   📝 Name:", sender_name);
+    console.log("   📧 Email:", sender_email);
+    console.log("   📞 Phone:", sender_phone);
+    console.log("   🛠️  Service:", sender_service);
+    console.log("   📅 Date:", senderDate);
+    console.log("   ⏰ Time:", senderTime);
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+    console.log("🔵 STEP 3: EmailJS credentials:");
+    console.log("   - Service ID: anrafagency_123");
+    console.log("   - Template ID: template_anrafagency");
+    console.log("   - Public Key: Z_qOdl5UEf0zzz8V7");
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+    console.log("⚠️  IMPORTANT: Make sure your EmailJS template includes these variables:");
+    console.log("   {{sender_name}} or {{name}}");
+    console.log("   {{sender_email}} or {{email}}");
+    console.log("   {{sender_phone}} or {{phone}}");
+    console.log("   {{sender_service}} or {{service}}");
+    console.log("   {{sender_date}} or {{date}}");
+    console.log("   {{sender_time}} or {{time}}");
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+    
+    try {
+      console.log("🔵 STEP 4: Calling emailjs.send()...");
+      
+      const response = await emailjs.send(
+        "anrafagency_123",
+        "template_anrafagency",
+        templateParams,
+        "Z_qOdl5UEf0zzz8V7"
+      );
+      
+      console.log("✅ STEP 5: Email sent successfully!");
+      console.log("   - Status:", response.status);
+      console.log("   - Text:", response.text);
+      console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+      return response;
+      
+    } catch (error) {
+      console.error("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+      console.error("❌ STEP 5: Email FAILED!");
+      console.error("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+      console.error("Error object:", error);
+      console.error("Error status:", error.status);
+      console.error("Error text:", error.text);
+      console.error("Error message:", error.message);
+      
+      if (error.status === 402) {
+        console.error("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+        console.error("💳 ERROR 402: PAYMENT REQUIRED");
+        console.error("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+        console.error("This means one of the following:");
+        console.error("1️⃣  EmailJS free tier limit exceeded (200 emails/month)");
+        console.error("2️⃣  EmailJS account email not verified");
+        console.error("3️⃣  Service ID 'anrafagency_123' doesn't exist or is disabled");
+        console.error("4️⃣  Template ID 'template_anrafagency' doesn't exist");
+        console.error("5️⃣  Public Key 'Z_qOdl5UEf0zzz8V7' is incorrect");
+        console.error("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+        console.error("🔧 SOLUTION:");
+        console.error("Go to https://dashboard.emailjs.com/");
+        console.error("1. Check your email is verified");
+        console.error("2. Check usage (should be under 200 emails this month)");
+        console.error("3. Verify Service ID exists and is active");
+        console.error("4. Verify Template ID exists");
+        console.error("5. Get the correct Public Key from Account settings");
+        console.error("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+      }
+      
+      throw error;
+    }
   };
 
-  const SheetSubmit = (e) => {
-    e.preventDefault();
+  const SheetSubmit = async () => {
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+    console.log("🟢 STEP 1: Starting SheetSubmit function");
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+    
     const data = {
       Name: sender_name,
       Email: sender_email,
@@ -64,31 +133,139 @@ const ContactUs1 = (props) => {
       Date: senderDate,
       Time: senderTime,
     };
-    axios
-      .post(
-        "https://sheet.best/api/sheets/69f079ba-8f87-4135-a184-a6709080c738",
-        data
-      )
-      .then((response) => {
-        console.log(response);
-        setName("");
-        setEmail("");
-        setPhone("");
-        set_sender_name("");
-        set_sender_email("");
-        set_sender_service("");
-        set_sender_phone("");
-        setService("");
-        set_sender_service("");
-        setSenderTime("");
-        setSenderDate("");
-        setCheck(false);
-      });
+    
+    console.log("🟢 STEP 2: Data prepared for Google Sheets:");
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+    console.log("📝 Name:", sender_name, "| Length:", sender_name?.length || 0);
+    console.log("📧 Email:", sender_email, "| Length:", sender_email?.length || 0);
+    console.log("📞 Phone:", sender_phone, "| Length:", sender_phone?.length || 0);
+    console.log("🛠️  Service:", sender_service, "| Length:", sender_service?.length || 0);
+    console.log("📅 Date:", senderDate, "| Length:", senderDate?.length || 0);
+    console.log("⏰ Time:", senderTime, "| Length:", senderTime?.length || 0);
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+    console.log("🟢 STEP 3: Full data object:", JSON.stringify(data, null, 2));
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+    
+    // Check if Google Sheet has correct column headers
+    console.log("⚠️  IMPORTANT: Your Google Sheet MUST have these exact column names:");
+    console.log("   Column A: Name");
+    console.log("   Column B: Email");
+    console.log("   Column C: Phone");
+    console.log("   Column D: Service");
+    console.log("   Column E: Date");
+    console.log("   Column F: Time");
+    console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+    
+    try {
+      console.log("🟢 STEP 4: Sending to SheetBest API...");
+      console.log("   URL: https://api.sheetbest.com/sheets/680aa488-4e67-4665-8fa3-b41a7f6c5f58");
+      
+      const response = await axios.post(
+        "https://api.sheetbest.com/sheets/680aa488-4e67-4665-8fa3-b41a7f6c5f58",
+        data,
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+      
+      console.log("✅ STEP 5: Sheet updated successfully!");
+      console.log("   - Status:", response.status);
+      console.log("   - Response data:", response.data);
+      console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+      return response;
+      
+    } catch (error) {
+      console.error("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+      console.error("❌ STEP 5: Google Sheets FAILED!");
+      console.error("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+      console.error("Error:", error);
+      console.error("Error message:", error.message);
+      console.error("Error response status:", error.response?.status);
+      console.error("Error response data:", error.response?.data);
+      console.error("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+      console.error("🔧 TROUBLESHOOTING:");
+      console.error("1. Check that your Google Sheet has the correct column headers");
+      console.error("2. Make sure SheetBest connection ID is correct");
+      console.error("3. Verify the sheet is not protected or read-only");
+      console.error("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+      throw error;
+    }
   };
 
-  const submit = (e) => {
-    SheetSubmit(e);
-    sendMail(e);
+  const submit = async (e) => {
+    e.preventDefault();
+    
+    console.clear(); // Clear console for clean debugging
+    console.log("═══════════════════════════════════════════════════");
+    console.log("🚀 FORM SUBMISSION STARTED");
+    console.log("═══════════════════════════════════════════════════");
+    console.log("Form Data:");
+    console.log("   Name:", sender_name);
+    console.log("   Email:", sender_email);
+    console.log("   Phone:", sender_phone);
+    console.log("   Service:", sender_service);
+    console.log("   Date:", senderDate);
+    console.log("   Time:", senderTime);
+    console.log("═══════════════════════════════════════════════════");
+    
+    // Validate
+    if (!sender_name || !sender_email || !sender_phone || !sender_service) {
+      console.error("❌ Validation failed: Missing required fields");
+      alert("Please fill in all required fields!");
+      return;
+    }
+    
+    let sheetSuccess = false;
+    let emailSuccess = false;
+    
+    // Try Google Sheets
+    try {
+      await SheetSubmit();
+      sheetSuccess = true;
+    } catch (error) {
+      console.error("Google Sheets failed, but continuing...");
+    }
+    
+    // Try EmailJS
+    try {
+      await sendMail();
+      emailSuccess = true;
+    } catch (error) {
+      console.error("EmailJS failed, but continuing...");
+    }
+    
+    console.log("═══════════════════════════════════════════════════");
+    console.log("📊 FINAL RESULTS:");
+    console.log("   Google Sheets:", sheetSuccess ? "✅ SUCCESS" : "❌ FAILED");
+    console.log("   EmailJS:", emailSuccess ? "✅ SUCCESS" : "❌ FAILED");
+    console.log("═══════════════════════════════════════════════════");
+    
+    // Show result to user
+    if (sheetSuccess && emailSuccess) {
+      alert("✅ Message sent successfully! We'll contact you soon.");
+    } else if (sheetSuccess) {
+      alert("✅ Message saved! Email notification failed (Error 402 - EmailJS account issue), but we have your details.");
+    } else if (emailSuccess) {
+      alert("✅ Email sent! Sheet save failed but we received your email.");
+    } else {
+      alert("❌ Both systems failed. Please contact us directly:\n📧 anrafagency@gmail.com\n📞 +213 552751832");
+      return; // Don't clear form if both failed
+    }
+    
+    // Clear form if at least one succeeded
+    set_sender_name("");
+    set_sender_email("");
+    set_sender_service("");
+    set_sender_phone("");
+    setSenderDate(date + "-" + CurrentMonth + "-" + year);
+    setSenderTime(hour + ":" + minute);
+    setService("");
+    setEmail("");
+    setName("");
+    setPhone("");
+    setCheck(false);
   };
 
   return (
