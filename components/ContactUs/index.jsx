@@ -38,7 +38,7 @@ import {
 
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { send } from "emailjs-com";
+import emailjs from "@emailjs/browser";
 import Link from "next/link";
 import { useLanguage } from "../../contexts/LanguageContext";
 
@@ -66,36 +66,39 @@ const ContactUs = () => {
   const [service, setService] = useState("");
   const [phone, setPhone] = useState("")
 
-  const sendMail = (e) => {
-    e.preventDefault();
-    send(
-      "service_p2zntyf",
-      "template_f4vbnzh",
-      { sender_name, sender_email, sender_service, senderDate, senderTime },
-      "HiwseFxtuDnSuFCo_"
-    )
-      .then((response) => {
-        console.log("message sent succesfully", response.status, response.text);
-      })
-      .catch((err) => {
-        console.log("Failed", err);
-      });
-    set_sender_name("");
-    set_sender_email("");
-    set_sender_service("");
-    set_sender_phone("");
-    setSenderDate("");
-    setSenderTime("");
-    setService("");
-    setEmail("");
-    setName("");
-    setPhone("");
-    setCheck(false);
+  const sendMail = async () => {
+    const templateParams = {
+      sender_name: sender_name,
+      sender_email: sender_email,
+      sender_phone: sender_phone,
+      sender_service: sender_service,
+      sender_date: senderDate,
+      sender_time: senderTime,
+      name: sender_name,
+      email: sender_email,
+      phone: sender_phone,
+      service: sender_service,
+      date: senderDate,
+      time: senderTime
+    };
+    
+    try {
+      const response = await emailjs.send(
+        "anrafagency_123",
+        "template_anrafagency",
+        templateParams,
+        "Z_qOdl5UEf0zzz8V7"
+      );
+      
+      return response;
+      
+    } catch (error) {
+      console.error("Email failed:", error);
+      throw error;
+    }
   };
 
-  const SheetSubmit = (e) => {
-    e.preventDefault();
-    // console.log(name,email,message)
+  const SheetSubmit = async () => {
     const data = {
       Name: sender_name,
       Email: sender_email,
@@ -104,30 +107,78 @@ const ContactUs = () => {
       Date: senderDate,
       Time: senderTime,
     };
-    axios
-      .post(
-        "https://sheet.best/api/sheets/69f079ba-8f87-4135-a184-a6709080c738",
-        data
-      )
-      .then((response) => {
-        console.log(response);
-        setName("");
-        setEmail("");
-        setPhone("");
-        set_sender_name("");
-        set_sender_email("");
-        set_sender_service("");
-        set_sender_phone("");
-        setService("");
-        set_sender_service("");
-        setSenderTime("");
-        setSenderDate("");
-        setCheck(false);
-      });
+    
+    try {
+      const response = await axios.post(
+        "https://api.sheetbest.com/sheets/680aa488-4e67-4665-8fa3-b41a7f6c5f58",
+        data,
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+      
+      return response;
+      
+    } catch (error) {
+      console.error("Sheet update failed:", error);
+      throw error;
+    }
   };
-  const submit = (e) => {
-    SheetSubmit(e);
-    sendMail(e);
+
+  const submit = async (e) => {
+    e.preventDefault();
+    
+    // Validate
+    if (!sender_name || !sender_email || !sender_phone || !sender_service) {
+      alert("Please fill in all required fields!");
+      return;
+    }
+    
+    let sheetSuccess = false;
+    let emailSuccess = false;
+    
+    // Try Google Sheets
+    try {
+      await SheetSubmit();
+      sheetSuccess = true;
+    } catch (error) {
+      console.error("Google Sheets failed:", error.message);
+    }
+    
+    // Try EmailJS
+    try {
+      await sendMail();
+      emailSuccess = true;
+    } catch (error) {
+      console.error("EmailJS failed:", error.message);
+    }
+    
+    // Show result to user
+    if (sheetSuccess && emailSuccess) {
+      alert("✅ Message sent successfully! We'll contact you soon.");
+    } else if (sheetSuccess) {
+      alert("✅ Message saved! Email notification failed, but we have your details.");
+    } else if (emailSuccess) {
+      alert("✅ Email sent! We received your message.");
+    } else {
+      alert("❌ Failed to send message. Please contact us directly:\n📧 anrafagency@gmail.com\n📞 +213 552751832");
+      return;
+    }
+    
+    // Clear form
+    set_sender_name("");
+    set_sender_email("");
+    set_sender_service("");
+    set_sender_phone("");
+    setSenderDate(date + "-" + CurrentMonth + "-" + year);
+    setSenderTime(hour + ":" + minute);
+    setService("");
+    setEmail("");
+    setName("");
+    setPhone("");
+    setCheck(false);
   };
   var Services = [
     "App Development",
@@ -268,9 +319,13 @@ const ContactUs = () => {
                   }}
                   required
                 >
-                  <option value="Marketing Websites & Apps">{t('contact.form.services.webDev')}</option>
-                  <option value="Digital Products & Services">{t('contact.form.services.digitalMarketing')}</option>
-                  <option value="Graphic Design & Montage">{t('contact.form.services.appDev')}</option>
+                  <option value="">{t('contact.form.servicePlaceholder')}</option>
+                  <option value="Digital Marketing">{t('contact.form.services.digitalMarketing')}</option>
+                  <option value="Website Building">{t('contact.form.services.webDev')}</option>
+                  <option value="Mobile App Development">{t('contact.form.services.appDev')}</option>
+                  <option value="Graphic Design">{t('contact.form.services.graphicDesign')}</option>
+                  <option value="Video Montage">{t('contact.form.services.videoMontage')}</option>
+                  <option value="Digital Products">{t('contact.form.services.digitalProducts')}</option>
                 </Dropdowns>
                 <br />
                 <label htmlFor="contact-email">{t('contact.form.emailLabel')}</label>&nbsp;
